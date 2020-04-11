@@ -2,6 +2,8 @@ import 'package:badges/badges.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:taste_bud/data/data.dart';
+import 'package:taste_bud/widgets/trending_orders.dart';
+import 'package:taste_bud/widgets/search_bar.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -17,7 +19,7 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.white,
         leading: IconButton(
           icon: Icon(
-            Icons.dashboard,
+            Icons.menu,
             color: Colors.grey[800],
           ),
           iconSize: 24,
@@ -29,13 +31,14 @@ class _HomeState extends State<Home> {
             child: GestureDetector(
               onTap: () {},
               child: Badge(
+                badgeColor: Colors.deepOrange,
                 badgeContent: Text(
                   '${currentUser.cart.length}',
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.white),
                 ),
                 child: Icon(
-                  Icons.shopping_cart,
+                  Icons.shopping_basket,
                   size: 24,
                   color: Colors.grey[800],
                 ),
@@ -45,46 +48,14 @@ class _HomeState extends State<Home> {
         ],
         title: Text(
           'Taste Bud',
-          style:
-              TextStyle(fontWeight: FontWeight.bold, color: Colors.grey[800]),
+          style: TextStyle(color: Colors.grey[800]),
         ),
         centerTitle: true,
       ),
       body: ListView(
         children: <Widget>[
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
-            child: TextField(
-              decoration: InputDecoration(
-                fillColor: Colors.white,
-                filled: true,
-                contentPadding: EdgeInsets.all(8.0),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                  borderSide: BorderSide(width: 0.8, color: Colors.grey[200]),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                  borderSide: BorderSide(width: 1.5, color: Colors.grey[800]),
-                ),
-                focusColor: Colors.cyan[200],
-                hintText: 'Search Food or Restaurants...',
-                prefixIcon: Icon(
-                  Icons.search,
-                  size: 24.0,
-                  color: Colors.grey[400],
-                ),
-                suffixIcon: IconButton(
-                  icon: Icon(
-                    Icons.clear,
-                    size: 18.0,
-                    color: Colors.grey[400],
-                  ),
-                  onPressed: () {},
-                ),
-              ),
-            ),
-          ),
+          SearchBar(),
+          TrendingOrders(),
         ],
       ),
     );
