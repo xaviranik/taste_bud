@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:taste_bud/data/data.dart';
 import 'package:taste_bud/widgets/nearby_restaurants.dart';
-import 'package:taste_bud/widgets/trending_orders.dart';
+import 'package:taste_bud/widgets/trending_foods.dart';
 import 'package:taste_bud/widgets/search_bar.dart';
 
 class Home extends StatefulWidget {
@@ -56,7 +56,7 @@ class _HomeState extends State<Home> {
       body: ListView(
         children: <Widget>[
           SearchBar(),
-          TrendingOrders(),
+          TrendingFoods(),
           NearbyRestaurants(),
         ],
       ),

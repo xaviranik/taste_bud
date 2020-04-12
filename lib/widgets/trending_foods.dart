@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:taste_bud/data/data.dart';
 import 'package:taste_bud/models/order.dart';
 
-class TrendingOrders extends StatelessWidget {
+class TrendingFoods extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -80,7 +80,7 @@ class TrendingOrders extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                         ),
                         SizedBox(
-                          height: 8.0,
+                          height: 16.0,
                         ),
                         Text(
                           order.restaurant.name,
