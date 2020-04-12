@@ -2,6 +2,7 @@ import 'package:badges/badges.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:taste_bud/data/data.dart';
+import 'package:taste_bud/widgets/nearby_restaurants.dart';
 import 'package:taste_bud/widgets/trending_orders.dart';
 import 'package:taste_bud/widgets/search_bar.dart';
 
@@ -31,7 +32,7 @@ class _HomeState extends State<Home> {
             child: GestureDetector(
               onTap: () {},
               child: Badge(
-                badgeColor: Colors.deepOrange,
+                badgeColor: Theme.of(context).primaryColor,
                 badgeContent: Text(
                   '${currentUser.cart.length}',
                   style: TextStyle(
@@ -56,6 +57,7 @@ class _HomeState extends State<Home> {
         children: <Widget>[
           SearchBar(),
           TrendingOrders(),
+          NearbyRestaurants(),
         ],
       ),
     );

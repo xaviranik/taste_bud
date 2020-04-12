@@ -12,6 +12,7 @@ void main() => runApp(MaterialApp(
     accentColor: Colors.deepOrange,
     primaryColor: Colors.deepOrange[800],
     cursorColor: Colors.deepOrange[400],
+    hintColor: Colors.white
   ),
   home: Home(),
 ));
