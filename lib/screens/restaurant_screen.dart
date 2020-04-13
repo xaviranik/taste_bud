@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:taste_bud/data/data.dart';
 import 'package:taste_bud/models/restaurant.dart';
+import 'package:taste_bud/widgets/rating_stars.dart';
 
 class RestaurantScreen extends StatefulWidget {
   final Restaurant restaurant;
@@ -29,7 +30,7 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                padding: EdgeInsets.symmetric(vertical: 16.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
@@ -47,6 +48,101 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
                     )
                   ],
                 ),
+              ),
+            ],
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Expanded(
+                          child: Text(
+                            widget.restaurant.name,
+                            style: TextStyle(
+                              fontSize: 24.0,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1.2,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                        Chip(
+                          backgroundColor: Colors.green[400],
+                          label: Text(
+                            'OPEN',
+                            style: TextStyle(
+                                fontSize: 14.0,
+                                color: Colors.white
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 8.0,),
+                    RatingStars(rating: widget.restaurant.rating,),
+                    SizedBox(height: 16.0,),
+                    Text(
+                      widget.restaurant.address,
+                      style: TextStyle(
+                        fontSize: 14.0,
+                        color: Colors.grey[600]
+                      ),
+                    ),
+                    SizedBox(height: 8.0,),
+                    Text(
+                      '0.2 miles away',
+                      style: TextStyle(
+                          fontSize: 14.0,
+                          color: Colors.grey[600]
+                      ),
+                    ),
+                    SizedBox(height: 16.0,),
+                    Row(
+                      children: <Widget>[
+                        FlatButton(
+                          onPressed: () {},
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0)
+                          ),
+                          padding: EdgeInsets.symmetric(horizontal: 16.0),
+                          color: Theme.of(context).primaryColor,
+                          child: Text(
+                            'Reviews',
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 16.0,),
+                        FlatButton(
+                          onPressed: () {},
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0)
+                          ),
+                          padding: EdgeInsets.symmetric(horizontal: 16.0),
+                          color: Theme.of(context).primaryColor,
+                          child: Text(
+                            'Customer Service',
+                            style: TextStyle(
+                                fontSize: 16.0,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                )
               ),
             ],
           ),
